@@ -38,7 +38,7 @@ form {
 
 form input, 
 form button {
-    display: inline-block;
+    display: flex;
     background: var(--backgound-input-button) ;
     border: none;
     font-size: 1.8rem;
@@ -51,6 +51,7 @@ form input {
 }
 
 form button {
+    
     background: var(--backgound-input-button) ;
     color: var(--primary-color);
     transition: all 0.5s ease;
@@ -64,4 +65,49 @@ form button:hover {
     color: var(--color-hover);
 }
 
- 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+/* appel de ma class todo de mon .js*/
+
+.todo {
+    min-width: 40%;
+    list-style: none;
+}
+
+/* appel de ma class task de mon .js*/
+
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.8rem;
+    background: var(--backgound-input-button);
+    color: var(--primary-color);
+    font-size: 1.8rem;
+    transition: all 0.5s ease;
+}
+
+/* appel de ma class li de mon .js*/
+
+.list-items {
+    flex: 1;
+    padding: 0rem .4rem;
+}
+
+/* appel de mes boutons de mon .js*/
+
+.confirm-btn,
+.deleted-btn {
+    display: flex;
+    font-size: 0.8rem;
+    background: var(--backgound-input-button);
+    color: var(--primary-color);
+    border: none;
+    padding: 0.7rem;
+    cursor: pointer;
+}

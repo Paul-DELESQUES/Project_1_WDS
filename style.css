@@ -17,7 +17,7 @@
 
 body {
     /* Le fond est provisoire*/
-    background-image: linear-gradient(120deg, blue, orange);
+    background-image: linear-gradient(120deg, #ecaf40, #1717d9f0);
     /* La couleur est provisoire*/
     color: var(--primary-color);
     /* Police provisoir intégrer une de google fonts */

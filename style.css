@@ -11,6 +11,7 @@
     --primary-color : #eaeaea;
     --background-color-hover: #eaeaea;
     --color-hover: #1717d9f0;
+    --primary-transition: all 0.5s ease;
 }
 
 
@@ -101,13 +102,25 @@ form button:hover {
 
 /* appel de mes boutons de mon .js*/
 
-.confirm-btn,
+.check-btn,
 .deleted-btn {
-    display: flex;
+
     font-size: 0.8rem;
     background: var(--backgound-input-button);
     color: var(--primary-color);
     border: none;
     padding: 0.7rem;
     cursor: pointer;
+    transition: var(--primary-transition);
 }
+
+.fa-trash,
+.fa-check {
+    pointer-events: none;
+}
+
+.itemCheck {
+    text-decoration: line-through;
+    opacity: 0.7;
+}
+

@@ -4,7 +4,8 @@ const button = document.querySelector(".button");
 const todoList = document.querySelector(".todo");
 // LES INTERACTIONS
 
-button.addEventListener("click", addTodo)
+button.addEventListener("click", addTodo);
+todoList.addEventListener("click", checkDelete);
 
 // LES FUNCTIONS
 
@@ -18,13 +19,13 @@ function addTodo(event) {
     // Créer les li de la section qui seraient dans index.html
     const newTask = document.createElement("li"); 
     newTask.classList.add("list-items")
-    newTask.innerText = "hello"
+    newTask.innerText = input.value;
     listDiv.appendChild(newTask);
 
     // Mettre le button valider 
     const confirmButton = document.createElement("button");
     confirmButton.innerHTML = '<i class="fas fa-check"></i>';
-    confirmButton.classList.add("confirm-btn");
+    confirmButton.classList.add("check-btn");
     listDiv.appendChild(confirmButton);
 
      // Mettre le button delete
@@ -36,5 +37,15 @@ function addTodo(event) {
 
      // Mettre section dans todolist
      todoList.appendChild(listDiv);
-    
+     input.value = '';
+}
+
+function checkDelete(event) {
+    const item = event.target;
+    if (item[0] === "check-btn") {
+        item.classList.parentElement.toggle("itemCheck");
+    }
+        if (item[0] === "deleted-btn") {
+            item.parentElement.remove();
+    } 
 }

@@ -49,6 +49,8 @@ function checkDelete(event) {
         task.classList.toggle("itemCheck");
     }
         if (item.classList[0] === "deleted-btn") {
-            item.parentElement.remove();
+            const task = item.parentElement;
+            task.classList.add("upGhost");
+            // task.remove();
     } 
 }

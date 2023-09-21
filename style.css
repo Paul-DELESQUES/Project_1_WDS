@@ -40,7 +40,7 @@ form {
 
 form input, 
 form button {
-    display: flex;
+
     background: var(--backgound-input-button) ;
     border: none;
     font-size: 1.8rem;
@@ -134,3 +134,7 @@ background: var(--background-color-hover);
     opacity: 0.5;
 }
 
+.upGhost {
+    transform: translateX(16rem);
+    opacity: 0;
+}

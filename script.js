@@ -40,12 +40,15 @@ function addTodo(event) {
      input.value = '';
 }
 
+// fonciton qui me permets de valider et supprimer ma tache
+
 function checkDelete(event) {
     const item = event.target;
-    if (item[0] === "check-btn") {
-        item.classList.parentElement.toggle("itemCheck");
+    if (item.classList[0] === "check-btn") {
+        const task = item.parentElement;
+        task.classList.toggle("itemCheck");
     }
-        if (item[0] === "deleted-btn") {
+        if (item.classList[0] === "deleted-btn") {
             item.parentElement.remove();
     } 
 }

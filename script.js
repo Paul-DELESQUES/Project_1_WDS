@@ -51,6 +51,8 @@ function checkDelete(event) {
         if (item.classList[0] === "deleted-btn") {
             const task = item.parentElement;
             task.classList.add("upGhost");
-            // task.remove();
-    } 
+            task.addEventListener("transitionend", function() {
+                task.remove(); 
+                });       // task.remove();
+            }
 }

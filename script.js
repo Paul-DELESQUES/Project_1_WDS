@@ -12,11 +12,11 @@ todoList.addEventListener("click", checkDelete);
 function addTodo(event) {
     event.preventDefault();
 
-    // Créer la section
+    // Créer la div
     const listDiv = document.createElement("div");
     listDiv.classList.add("task");
 
-    // Créer les li de la section qui seraient dans index.html
+    // Créer les li de la div qui seraient dans index.html
     const newTask = document.createElement("li"); 
     newTask.classList.add("list-items")
     newTask.innerText = input.value;

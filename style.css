@@ -7,9 +7,10 @@
 }
 
 :root {
-    --backgound-input-button : linear-gradient(120deg, #ecaf40, #1717d9f0);
-    --primary-color : #eaeaea;
-    --background-color-hover: #eaeaea;
+    --backgound-input-button : lightgrey;
+    --primary-color : orange;
+    --secondary-color : rgba(77, 173, 13, 0.651) ;
+    --background-color-hover: rgba(226, 164, 49, 0.616);
     --color-hover: #1717d9f0;
     --primary-transition: all 0.5s ease;
 }
@@ -19,7 +20,7 @@ body {
     /* Le fond est provisoire*/
     background-image: linear-gradient(120deg, #ecaf40, #1717d9f0);
     /* La couleur est provisoire*/
-    color: var(--primary-color);
+    color: var(--secondary-color);
     /* Police provisoir intégrer une de google fonts */
     font-family: 'Courier New', Courier, monospace;
     min-height: 100vh;
@@ -49,6 +50,8 @@ form button {
 form input {
     border-top-left-radius: 0.4rem;
     border-bottom-left-radius: 0.4rem ;
+    min-width: 30%;
+    color: var(--secondary-color);
 }
 
 form button {
@@ -76,7 +79,7 @@ form button:hover {
 /* appel de ma class todo de mon .js*/
 
 .todo {
-    min-width: 40%;
+    min-width: 30%;
     list-style: none;
 }
 
@@ -91,6 +94,7 @@ form button:hover {
     color: var(--primary-color);
     font-size: 1.8rem;
     transition: all 0.5s ease;
+    color: var(--secondary-color);
 }
 
 /* appel de ma class li de mon .js*/
@@ -112,6 +116,12 @@ form button:hover {
     padding: 0.7rem;
     cursor: pointer;
     transition: var(--primary-transition);
+}
+
+.check-btn:hover,
+.deleted-btn:hover {
+background: var(--background-color-hover);
+    color: var(--color-hover);
 }
 
 .fa-trash,

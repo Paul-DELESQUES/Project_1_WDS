@@ -2,10 +2,12 @@
 const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 const todoList = document.querySelector(".todo");
+const filterList = document.querySelector(".filter-category");
 // LES INTERACTIONS
 
 button.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkDelete);
+filterList.addEventListener("input", filterTodo);
 
 // LES FUNCTIONS
 
@@ -48,11 +50,41 @@ function checkDelete(event) {
         const task = item.parentElement;
         task.classList.toggle("itemCheck");
     }
-        if (item.classList[0] === "deleted-btn") {
-            const task = item.parentElement;
+    if (item.classList[0] === "deleted-btn") {
+        const task = item.parentElement;
+        if (task) {
             task.classList.add("upGhost");
             task.addEventListener("transitionend", function() {
                 task.remove(); 
-                });       // task.remove();
+            });
+        }
+    }
+}
+
+function filterTodo(e) {
+    const tasks = document.querySelectorAll(".task");
+    tasks.forEach(function(task) {
+        const newTask = task.querySelector(".list-items"); 
+        if (newTask) {
+            switch(e.target.value) {
+                case "all": 
+                    newTask.style.display = "flex"; 
+                    break;
+                case "achieved":
+                    if (task.classList.contains("achieved")) {
+                        newTask.style.display = "flex"; 
+                    } else {
+                        newTask.style.display = "none"; 
+                    }
+                    break;
+                case "standby":
+                    if (!task.classList.contains("achieved")) {
+                        newTask.style.display = "flex"; 
+                    } else {
+                        newTask.style.display = "none"; 
+                    }
+                    break;
             }
+        }
+    });
 }

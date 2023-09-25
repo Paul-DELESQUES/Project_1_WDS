@@ -13,6 +13,7 @@
     --background-color-hover: rgba(226, 164, 49, 0.616);
     --color-hover: #1717d9f0;
     --primary-transition: all 0.5s ease;
+    --primary-family: 'Courier New', Courier, monospace;
 }
 
 
@@ -141,3 +142,31 @@ background: var(--background-color-hover);
     transform: translateX(16rem);
     opacity: 0;
 }
+
+select {
+    border: none;
+    list-style: none;
+    box-shadow: none;
+    outline: none;
+
+}
+
+.select {
+    overflow: hidden;
+    position: relative;
+    padding: 1rem;
+    margin: .5rem;
+}
+
+select {
+    color: var(--primary-color);
+    cursor: pointer;
+    padding: 1rem;
+    width: 10rem;
+    font-family: var(--primary-family);
+    font-weight: 700;
+    font-size: .7rem;
+    border-radius: 0.4rem;
+    background-color: var(--backgound-input-button);
+}
+

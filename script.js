@@ -59,13 +59,12 @@ function checkDelete(event) {
     }
 }
 
-function filterCategory() {
+function filterCategory(e) {
     const tasks = todoList.querySelectorAll(".task");
-    const category = filterList.value;
-
+    
     tasks.forEach(function (task) {
 
-        switch(category) {
+        switch(e.target.value) {
             case "all":
                 task.style.display = "flex";
                 break;

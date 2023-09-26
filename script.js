@@ -3,11 +3,12 @@ const input = document.querySelector(".input");
 const button = document.querySelector(".button");
 const todoList = document.querySelector(".todo");
 const filterList = document.querySelector(".filter-category");
-// LES INTERACTIONS
+
+// LES ECOUTEURS
 
 button.addEventListener("click", addTodo);
 todoList.addEventListener("click", checkDelete);
-filterList.addEventListener("input", filterTodo);
+filterList.addEventListener("input", filterCategory);
 
 // LES FUNCTIONS
 
@@ -46,45 +47,42 @@ function addTodo(event) {
 
 function checkDelete(event) {
     const item = event.target;
-    if (item.classList[0] === "check-btn") {
-        const task = item.parentElement;
-        task.classList.toggle("itemCheck");
-    }
-    if (item.classList[0] === "deleted-btn") {
-        const task = item.parentElement;
-        if (task) {
-            task.classList.add("upGhost");
-            task.addEventListener("transitionend", function() {
-                task.remove(); 
-            });
-        }
+    const task = item.parentElement; // Obtenez la tâche parente
+
+    if (item.classList.contains("check-btn")) {
+        task.classList.toggle("achieved"); // Ajoutez ou supprimez la classe "achieved"
+    } else if (item.classList.contains("deleted-btn")) {
+        task.classList.add("upGhost");
+        task.addEventListener("transitionend", function() {
+            task.remove();
+        });
     }
 }
 
-function filterTodo(e) {
-    const tasks = document.querySelectorAll(".task");
-    tasks.forEach(function(task) {
-        const newTask = task.querySelector(".list-items"); 
-        if (newTask) {
-            switch(e.target.value) {
-                case "all": 
-                    newTask.style.display = "flex"; 
-                    break;
-                case "achieved":
-                    if (task.classList.contains("achieved")) {
-                        newTask.style.display = "flex"; 
-                    } else {
-                        newTask.style.display = "none"; 
-                    }
-                    break;
-                case "standby":
-                    if (!task.classList.contains("achieved")) {
-                        newTask.style.display = "flex"; 
-                    } else {
-                        newTask.style.display = "none"; 
-                    }
-                    break;
-            }
+function filterCategory() {
+    const tasks = todoList.querySelectorAll(".task");
+    const category = filterList.value;
+
+    tasks.forEach(function (task) {
+
+        switch(category) {
+            case "all":
+                task.style.display = "flex";
+                break;
+            case "achieved":
+                if (task.classList.contains("achieved")) {
+                    task.style.display = "flex";
+                } else {
+                    task.style.display = "none";
+                }
+                break;
+            case "standby":
+                if (!task.classList.contains("achieved")) {
+                    task.style.display = "flex";
+                } else {
+                    task.style.display = "none";
+                }
+                break;
         }
     });
 }
